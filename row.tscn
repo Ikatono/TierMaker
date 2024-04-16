@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4j824viqwho2"]
+[gd_scene load_steps=3 format=3 uid="uid://d4j824viqwho2"]
+
+[ext_resource type="Script" path="res://Row.cs" id="1_lr7oy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n14fa"]
 
-[node name="Row" type="Area2D"]
+[node name="Row" type="Area2D" groups=["Row"]]
+script = ExtResource("1_lr7oy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n14fa")

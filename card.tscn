@@ -1,10 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcmgf041scwb4"]
+[gd_scene load_steps=8 format=3 uid="uid://bcmgf041scwb4"]
+
+[ext_resource type="Script" path="res://Card.cs" id="1_sy5mp"]
+[ext_resource type="Texture2D" uid="uid://b8acjd4lvei07" path="res://Sprites/SingleWhitePixel.png" id="2_v2iad"]
+[ext_resource type="Script" path="res://CardShape.cs" id="2_w7o1r"]
+[ext_resource type="Script" path="res://CardSprite.cs" id="3_0aoyx"]
+[ext_resource type="Script" path="res://IdLabel.cs" id="4_0khjp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25ape"]
+size = Vector2(1, 1)
 
-[node name="Card" type="Area2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_vre1j"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Card" type="Area2D" groups=["Card"]]
+script = ExtResource("1_sy5mp")
+Size = Vector2(150, 150)
+
+[node name="CardShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_25ape")
+script = ExtResource("2_w7o1r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="IdLabel" type="Label" parent="CardShape"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "A1"
+label_settings = SubResource("LabelSettings_vre1j")
+vertical_alignment = 2
+script = ExtResource("4_0khjp")
+
+[node name="CardSprite" type="Sprite2D" parent="CardShape"]
+modulate = Color(0.721569, 0, 0.572549, 1)
+texture = ExtResource("2_v2iad")
+script = ExtResource("3_0aoyx")
